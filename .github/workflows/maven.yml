@@ -47,7 +47,7 @@ jobs:
       with:
         version: 21.2.2                                      # On-prem customers should specify a client version that matches their ScanCentral environment
                                                              # FoD customers usually should not specify a version but rather rely on the default version
-        client-auth-token: ${{ secrets.CLIENT_AUTH_TOKEN }}  # Optional, but required if ScanCentral Controller requires client authentication
+        client-auth-token: ${{secrets.CLIENT_AUTH_TOKEN}}  # Optional, but required if ScanCentral Controller requires client authentication
         
     - name: Setting FQDN address
       run: |
@@ -62,8 +62,8 @@ jobs:
     - name: Perform SAST Scan
       run: scancentral -url ${SC_CONTROLLER_URL} start $BUILD_OPTS -upload -application $APPLICATION -version $VERSION -uptoken $SSC_UPLOAD_TOKEN
       env:                                            
-        SC_CONTROLLER_URL: ${{ secrets.SC_CONTROLLER_URL }}
-        SSC_UPLOAD_TOKEN: ${{ secrets.SSC_UPLOAD_TOKEN }}
+        SC_CONTROLLER_URL: ${{secrets.SC_CONTROLLER_URL}}
+        SSC_UPLOAD_TOKEN: ${{secrets.SSC_UPLOAD_TOKEN}}
         APPLICATION: "simprabbitMQ"
         VERSION: "10.0"
         BUILD_OPTS: "-bt mvn"
