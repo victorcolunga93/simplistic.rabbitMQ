@@ -63,7 +63,7 @@ jobs:
       run: scancentral -url ${SC_CONTROLLER_URL} start $BUILD_OPTS -upload -application $APPLICATION -version $VERSION -uptoken $SSC_UPLOAD_TOKEN
       env:                                            
         SC_CONTROLLER_URL: ${{ secrets.SC_CONTROLLER_URL }}
-        SSC_UPLOAD_TOKEN: ${{ secrets.SSC_UPLOAD_TOKEN }}
+        SSC_UPLOAD_TOKEN: ${{secrets.SSC_UPLOAD_TOKEN }}
         APPLICATION: "simprabbitMQ"
         VERSION: "10.0"
         BUILD_OPTS: "-bt mvn"
